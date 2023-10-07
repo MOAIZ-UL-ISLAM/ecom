@@ -1,12 +1,20 @@
-import { UserButton } from "@clerk/nextjs";
+"use client";
 
-const Setup =() => {
-  return (
-    <main className="flex  flex-col items-center justify-between p-24">
-      <p className="bg-gray-800 p-4 text-white">Hello </p>
-      <UserButton afterSignOutUrl="/"/>
-    </main>
-  )
-}
+import { useStoreModal } from "@/hooks/use-store-modal";
+import { useEffect } from "react";
+
+const Setup = () => {
+  const onOpen = useStoreModal((state) => state.onOpen);
+  const isOpen = useStoreModal((state) => state.isOpen);
+
+  useEffect(() => {
+    if (!isOpen) {
+      onOpen();
+    }
+  }, [isOpen, onOpen]);
+
+  return <div className="p-4">
+    Root Page
+  </div>;
+};
 export default Setup;
-
