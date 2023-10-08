@@ -51,13 +51,13 @@ export const StoreModal = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Username</FormLabel>
+                    <FormLabel>Name</FormLabel>
                     <FormControl>
                       <Input placeholder="Shipzy E-commerce" {...field} />
                     </FormControl>
 
                     <FormDescription>
-                      This is your public display name.
+                      Enter Store Name to Continue...
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -67,7 +67,7 @@ export const StoreModal = () => {
               <Button variant="outline" onClick={storeModal.onClose}>
                 Cancel
               </Button>
-              <Button type="submit">Submit</Button>
+              <Button type="submit">Continue</Button>
 
               </div>
               
