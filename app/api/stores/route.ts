@@ -1,13 +1,11 @@
-
 import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs';
 
 import prismadb from '@/lib/prismadb';
 
-export default async function POST(
+export async function POST(
   req: Request,
 ) {
-  console.log("POST function called");
   try {
     const { userId } = auth();
     const body = await req.json();
@@ -31,7 +29,6 @@ export default async function POST(
   
     return NextResponse.json(store);
   } catch (error) {
-    console.error("Error in POST function:", error);
     console.log('[STORES_POST]', error);
     return new NextResponse("Internal error", { status: 500 });
   }
